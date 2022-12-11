@@ -1,10 +1,13 @@
-public class Feedback1_3 {
+package Feedback1_3;
+
+public class Programa {
     /* 3.	Realiza una aplicación que ejecute 4 hilos de forma que se ejecuten de forma ordenada uno detrás de
      otro esperando cada uno a que termine el anterior para ejecutarse
      */
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Inicio del programa. Ejecución de hilos en orden");
+
         //Creación de hilos pasándole la tarea que tiene que hacer el hilo, la tarea es de tipo Runnable.
         Thread hilo1 = new Thread(new TareaDeHilo(),"Hilo1");
         Thread hilo2 = new Thread(new TareaDeHilo(),"Hilo2");
