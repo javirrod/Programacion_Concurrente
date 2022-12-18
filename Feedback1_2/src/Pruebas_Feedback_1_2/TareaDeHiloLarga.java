@@ -1,9 +1,9 @@
-package Feedback1_2;
+package Pruebas_Feedback_1_2;
 
-public class TareaDeHilo implements Runnable{
+public class TareaDeHiloLarga implements Runnable{
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20;i++) {
             System.out.println(Thread.currentThread().getName());
             try {
                 Thread.sleep(1000);
