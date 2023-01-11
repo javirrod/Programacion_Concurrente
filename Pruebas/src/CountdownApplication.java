@@ -27,7 +27,7 @@ public class CountdownApplication {
     private JButton cancelButton;
     // La tarea en segundo plano que realiza la cuenta atrás
     //private CountdownTask countdownTask;
-/*
+
     public CountdownApplication() {
         // Crea la ventana principal de la aplicación
         mainFrame = new JFrame("Cuenta atrás");
@@ -62,4 +62,33 @@ public class CountdownApplication {
 
 
 
- */
+          // Crea el panel principal de la aplicación
+        JPanel mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(5, 5, 5, 5);
+        c.gridx = 0;
+        c.gridy = 0;
+        mainPanel.add(new JLabel("Número de segundos:"), c);
+        c.gridx = 1;
+        mainPanel.add(secondsField, c);
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 2;
+        mainPanel.add(progressBar, c);
+        c.gridy = 2;
+        mainPanel.add(countdownLabel, c);
+        c.gridy = 3;
+        mainPanel.add(startButton, c);
+        c.gridy = 4;
+        mainPanel.add(cancelButton, c);
+
+        // Añade el panel principal a la ventana principal
+        mainFrame.add(mainPanel);
+        mainFrame.pack();
+        mainFrame.setVisible(true);
+    }
+
+public static void main(String[] args) {
+        new CountdownApplication();
+    }
+}
