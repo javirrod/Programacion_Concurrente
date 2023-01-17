@@ -30,19 +30,23 @@ public class CountdownSwingWorker extends SwingWorker<Void, Void> {
             }
             setProgress(100 * (seconds - i) / seconds);
             label.setText(String.valueOf(i));
-            Thread.sleep(1000);
             progressBar.setValue(i);
+            Thread.sleep(1000);
+
         }
         System.out.println("Tarea finalizada");
-        JFrame frame2 = new JFrame("Tarea finalizada");
+        JFrame frame2 = new JFrame();
+        JOptionPane.showMessageDialog(frame2, "¡Tiempo agotado!");
 
-        JPanel panel2 = new JPanel();
-        panel2.add(new JLabel("Cuenta atrás finalizada con éxito"));
-        panel2.setVisible(true);
-        frame2.add(panel2);
-        frame2.pack();
-        frame2.setLocationRelativeTo(null);
-        frame2.setVisible(true);
+        //otra forma de hacerlo - Creando un panel y añadiendo un label
+//        JPanel panel2 = new JPanel();
+//        panel2.add(new JLabel("Cuenta atrás finalizada con éxito"));
+//        panel2.setVisible(true);
+        //frame2.add(panel2);
+        //frame2.pack();
+        //frame2.setLocationRelativeTo(null);
+        //frame2.setVisible(true);
+
 
         return null;
     }

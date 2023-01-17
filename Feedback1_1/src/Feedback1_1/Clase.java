@@ -1,3 +1,4 @@
+//EJERCICIO 1 DE FEEDBACK
 package Feedback1_1;
 
 import javax.swing.*;
@@ -27,7 +28,8 @@ public class Clase {
         //frame.pack();
         frame.setVisible(true);
         JProgressBar progressBar = new JProgressBar(0, 5);
-        progressBar.setValue(100);
+        progressBar.setValue(100);//valor inicial
+        progressBar.setStringPainted(true);//para ver el porcentaje
         panel.add(progressBar);
 
         //añadir etiqueta de texto para introducir segundos
@@ -47,6 +49,16 @@ public class Clase {
         frame.pack();
         //coloca la ventana en el centro de la pantalla
         frame.setLocationRelativeTo(null);
+
+//        private void Cancelar(ActionEvent evt){
+//            botonCancelar.setEnabled(false);
+//            botonIniciar.setEnabled(true);
+//
+//            if (CountdownSwingWorker.cancel(true)){
+//                JOptionPane.showMessageDialog(frame, "¡Tarea cancelada!");
+//                progressBar.setValue(0);
+//            }
+//        }
 
         botonSalir.addActionListener(new ActionListener() { //añado un listener al boton
             @Override
@@ -71,6 +83,10 @@ public class Clase {
                 CountdownSwingWorker worker = new CountdownSwingWorker(numero,label,progressBar);
                 // Iniciar la tarea en segundo plano
                 worker.execute();
+                if (numero == 0){
+                    JOptionPane.showMessageDialog(frame, "¡Tiempo agotado!");
+                }
+
 
 
             }
@@ -78,16 +94,19 @@ public class Clase {
         botonCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
+
                 // Crear la tarea en segundo plano
                 CountdownSwingWorker worker = new CountdownSwingWorker(5,label,progressBar);
                 //establecer iscancelled a true
                 worker.isCancelled();
                 // cancelar la tarea en segundo plano
                 worker.cancel(true);
-
-
             }
         });
+
+
     }
 
     }
