@@ -15,13 +15,12 @@ public class Clase {
 
         // Crear un botón para iniciar la tarea en segundo plano
         JButton botonIniciar = new JButton("Iniciar cuenta atrás");
-
         //crear botón para detener la tarea
         JButton botonCancelar = new JButton("Detener tarea");
-      //  botonCancelar.doClick();
         // Añadir el botón al panel y la panel a la ventana
         panel.add(botonIniciar);
         panel.add(botonCancelar);
+        botonCancelar.setEnabled(false);
         frame.add(panel);
 
         // Hacer la ventana visible
@@ -40,7 +39,6 @@ public class Clase {
         panel.add(textField);
         //int numero = Integer.parseInt(textField.getText());
 
-
         //creo un boton llamado salir que cierre la ventana
         JButton botonSalir = new JButton("Salir"); //creo el boton
         panel.add(botonSalir); //añado el boton al panel
@@ -50,30 +48,30 @@ public class Clase {
         //coloca la ventana en el centro de la pantalla
         frame.setLocationRelativeTo(null);
 
-//        private void Cancelar(ActionEvent evt){
+//
+    //CountdownSwingWorker worker = null;//creo un objeto de la clase CountdownSwingWorker
+
+
+//        private void cancelar(ActionEvent evt){
 //            botonCancelar.setEnabled(false);
 //            botonIniciar.setEnabled(true);
 //
-//            if (CountdownSwingWorker.cancel(true)){
+//            if (worker.cancel(true)){
 //                JOptionPane.showMessageDialog(frame, "¡Tarea cancelada!");
 //                progressBar.setValue(0);
 //            }
 //        }
-
         botonSalir.addActionListener(new ActionListener() { //añado un listener al boton
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0); //cierro la ventana
             }
-
-
-
-
         });
 
         botonIniciar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                botonCancelar.setEnabled(true);
                 String text = textField.getText();
                 int numero = Integer.parseInt(text);
                 progressBar.setMaximum(numero);
@@ -81,34 +79,28 @@ public class Clase {
                 System.out.println(numero);
                 // Crear la tarea en segundo plano
                 CountdownSwingWorker worker = new CountdownSwingWorker(numero,label,progressBar);
+
                 // Iniciar la tarea en segundo plano
                 worker.execute();
                 if (numero == 0){
                     JOptionPane.showMessageDialog(frame, "¡Tiempo agotado!");
                 }
+                //creo el listener para el boton cancelar mientras se esta ejecutando la tarea y poder cancelarla
+                botonCancelar.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
 
+                        worker.cancel(true);
+                        JOptionPane.showMessageDialog(frame, "¡Tarea cancelada!");
+                        progressBar.setValue(0);
+                        botonCancelar.setEnabled(false);
 
-
+                    }
+                });
             }
         });
-        botonCancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-
-                // Crear la tarea en segundo plano
-                CountdownSwingWorker worker = new CountdownSwingWorker(5,label,progressBar);
-                //establecer iscancelled a true
-                worker.isCancelled();
-                // cancelar la tarea en segundo plano
-                worker.cancel(true);
-            }
-        });
-
 
     }
-
     }
 
 
