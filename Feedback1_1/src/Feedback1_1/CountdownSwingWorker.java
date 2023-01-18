@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutionException;
 
 public class CountdownSwingWorker extends SwingWorker<Void, Void> {
     private int seconds=5;
-    private JLabel label;
-    private JProgressBar progressBar;
+    private final JLabel label;
+    private final JProgressBar progressBar;
 
     public CountdownSwingWorker(int seconds, JLabel label, JProgressBar progressBar) {
 
@@ -23,18 +23,18 @@ public class CountdownSwingWorker extends SwingWorker<Void, Void> {
 
     protected Void doInBackground() throws Exception {
         for (int i = seconds; i >= 0; i--) {
-            if (isCancelled()) {
-                System.out.println("cancelado");
-                break;
-
-            }
+//            if (isCancelled()) {
+//                System.out.println("cancelado");
+//                break;
+//
+//            }
             setProgress(100 * (seconds - i) / seconds);
             label.setText(String.valueOf(i));
             progressBar.setValue(i);
-            Thread.sleep(1000);
+            Thread.sleep(500);
 
         }
-        System.out.println("Tarea finalizada");
+        //System.out.println("Tarea finalizada");
         JFrame frame2 = new JFrame();
         JOptionPane.showMessageDialog(frame2, "¡Tiempo agotado!");
 
@@ -46,8 +46,6 @@ public class CountdownSwingWorker extends SwingWorker<Void, Void> {
         //frame2.pack();
         //frame2.setLocationRelativeTo(null);
         //frame2.setVisible(true);
-
-
         return null;
     }
 

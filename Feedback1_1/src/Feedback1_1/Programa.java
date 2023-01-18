@@ -5,9 +5,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static java.lang.Integer.parseInt;
+//import static java.lang.Integer.parseInt;
 
-public class Clase {
+public class Programa {
     public static void main(String[] args) {
         // Crear la ventana y el panel
         JFrame frame = new JFrame("Programa de cuenta atrás");
@@ -17,16 +17,19 @@ public class Clase {
         JButton botonIniciar = new JButton("Iniciar cuenta atrás");
         //crear botón para detener la tarea
         JButton botonCancelar = new JButton("Detener tarea");
+        //creo un boton llamado salir que cierre la ventana
+        JButton botonSalir = new JButton("Salir"); //creo el boton salir
+
         // Añadir el botón al panel y la panel a la ventana
         panel.add(botonIniciar);
         panel.add(botonCancelar);
-        botonCancelar.setEnabled(false);
+        panel.add(botonSalir); //añado el boton al panel
+        botonCancelar.setEnabled(false);//no se puede pulsar de momento
         frame.add(panel);
 
         // Hacer la ventana visible
-        //frame.pack();
         frame.setVisible(true);
-        JProgressBar progressBar = new JProgressBar(0, 5);
+        JProgressBar progressBar = new JProgressBar(0, 5);//barra de progreso
         progressBar.setValue(100);//valor inicial
         progressBar.setStringPainted(true);//para ver el porcentaje
         panel.add(progressBar);
@@ -35,13 +38,9 @@ public class Clase {
         JLabel label = new JLabel("Introduce la cantidad de segundos:");
         panel.add(label);
         //añadir campo de texto para introducir segundos
-        JTextField textField = new JTextField("5",10);
+        JTextField textField = new JTextField("5",5);
         panel.add(textField);
         //int numero = Integer.parseInt(textField.getText());
-
-        //creo un boton llamado salir que cierre la ventana
-        JButton botonSalir = new JButton("Salir"); //creo el boton
-        panel.add(botonSalir); //añado el boton al panel
 
         //ajustar la ventana al tamaño de los componentes
         frame.pack();
@@ -50,7 +49,6 @@ public class Clase {
 
 //
     //CountdownSwingWorker worker = null;//creo un objeto de la clase CountdownSwingWorker
-
 
 //        private void cancelar(ActionEvent evt){
 //            botonCancelar.setEnabled(false);
@@ -76,7 +74,7 @@ public class Clase {
                 int numero = Integer.parseInt(text);
                 progressBar.setMaximum(numero);
                 //progressBar.setValue(numero);
-                System.out.println(numero);
+                //System.out.println(numero);
                 // Crear la tarea en segundo plano
                 CountdownSwingWorker worker = new CountdownSwingWorker(numero,label,progressBar);
 
@@ -85,21 +83,18 @@ public class Clase {
                 if (numero == 0){
                     JOptionPane.showMessageDialog(frame, "¡Tiempo agotado!");
                 }
-                //creo el listener para el boton cancelar mientras se esta ejecutando la tarea y poder cancelarla
+                //creo el listener para el botón cancelar mientras se está ejecutando la tarea y poder cancelarla
                 botonCancelar.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
                         worker.cancel(true);
                         JOptionPane.showMessageDialog(frame, "¡Tarea cancelada!");
                         progressBar.setValue(0);
                         botonCancelar.setEnabled(false);
-
                     }
                 });
             }
         });
-
     }
     }
 
