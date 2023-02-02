@@ -5,8 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/Feedback1_1/Feedback1_1.iml" filepath="$PROJECT_DIR$/Feedback1_1/Feedback1_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Feedback1_2/Feedback1_2.iml" filepath="$PROJECT_DIR$/Feedback1_2/Feedback1_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Feedback1_3/Feedback1_3.iml" filepath="$PROJECT_DIR$/Feedback1_3/Feedback1_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Feedback2_Future1/Feedback2_Future1.iml" filepath="$PROJECT_DIR$/Feedback2_Future1/Feedback2_Future1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Feedback2_Future2/Feedback2_Future2.iml" filepath="$PROJECT_DIR$/Feedback2_Future2/Feedback2_Future2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Feedback2_Observer_1/Feedback2_Observer_1.iml" filepath="$PROJECT_DIR$/Feedback2_Observer_1/Feedback2_Observer_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Feedback2_Observer_2/Feedback2_Observer_2.iml" filepath="$PROJECT_DIR$/Feedback2_Observer_2/Feedback2_Observer_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Feedback2_Streams/Feedback2_Streams.iml" filepath="$PROJECT_DIR$/Feedback2_Streams/Feedback2_Streams.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Programacion_Concurrente.iml" filepath="$PROJECT_DIR$/.idea/Programacion_Concurrente.iml" />
     </modules>
   </component>
